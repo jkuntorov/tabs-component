@@ -1,0 +1,151 @@
+// Variables
+@whiteColour: #fff;
+@greyColour: #f2f2f2;
+@darkGreyColour: #ddd;
+@headlineFonts: "Guardian Egyptian Headline", Georgia, serif;
+@bodyFonts: "Guardian Egyptian Text", Georgia, serif;
+
+// Component Styling
+.tabs {
+	width: 100%;
+	background: @whiteColour;
+
+	a { text-decoration: none; }
+
+	.tabs-header {
+		width: 100%;
+		background: @greyColour;
+		font-family: @headlineFonts;
+
+		ul {
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+
+			li {
+				display: inline-block;
+				width: 33.33333%;
+				float: left;
+
+				@media screen and (min-width: 769px) {
+					width: auto;
+				}
+
+				a {
+					display: block;
+					padding: 10px 15px;
+					color: #333;
+					font-size: 16px;
+					line-height: 20px;
+
+					&:hover {
+						background: @darkGreyColour;
+					}
+				}
+
+				&.active a {
+					background: @whiteColour;
+					font-weight: 600;
+				}
+			}
+		}	
+	}
+
+	.tabs-content {
+		.panel {
+			display: none;
+			
+			&.active { display: block; }
+
+			ul {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+
+				li {
+					margin: 0 15px;
+					padding: 15px 0;
+					border-bottom: 1px solid @greyColour;
+					overflow: hidden;
+					font-size: 16px;
+					line-height: 20px;
+					font-family: @headlineFonts;
+
+					&:last-child { border-bottom: none; }
+
+					.number {
+						display: inline-block;
+						color: @darkGreyColour;
+						width: 30px;
+						float: left;
+					}
+
+					.description {
+						display: block;
+						margin-left: 30px;
+						
+						@media screen and (min-width: 560px) {
+							margin-right: 160px;
+						}
+
+						h4 {
+							margin: 0 0 5px 0;
+							font-weight: 600;
+							
+							a { 
+								color: #333;
+
+								&:hover {
+									text-decoration: underline;
+								}
+							}
+						}
+
+						p {
+							font-family: @bodyFonts;
+							margin: 0;
+							font-size: 14px;
+							line-height: 20px;
+						}
+					}
+
+					img.thumbnail {
+						display: none;
+
+						@media screen and (min-width: 560px) {
+							display: block;
+							float: right;
+							max-width: 140px;
+							height: auto;
+						}
+					}
+				}
+			}
+
+			.no-content {
+				padding: 50px 15px;
+				text-align: center;
+				font-size: 14px;
+				line-height: 21px;
+				color: @darkGreyColour;
+				font-family: @bodyFonts;
+			}
+		}
+	}
+}
+
+// The tabs can live without the following styles,
+// but I'm using them to contain the component
+// so it looks prettier
+body {
+	background: @greyColour;
+
+	.container {
+		border: 10px solid @greyColour;
+
+		@media screen and (min-width: 960px) {
+			width: 960px;
+			margin: 0 auto;
+		}
+	}
+}
